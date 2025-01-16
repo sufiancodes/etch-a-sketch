@@ -24,17 +24,25 @@ divs.forEach(div => {
         div.style.backgroundColor = 'red';
     });
     // on leave remove the color added
-    div.addEventListener('mouseleave', () => {
-        div.style.removeProperty('background-color');  // Remove the inline style to reset to the CSS color
-    });
+    // div.addEventListener('mouseleave', () => {
+    //     div.style.removeProperty('background-color');  // Remove the inline style to reset to the CSS color
+    // });
 });
 }
 
+const resetColor = document.querySelector(".btn1");
+resetColor.addEventListener('click', () => {
+    const divs = document.querySelectorAll("div");
+    divs.forEach(div => {
+        div.style.removeProperty('background-color');
+    });
+});
+
 const popup = document.querySelector(".btn");
 popup.addEventListener('click', () => {
-    let gridsize = prompt("Enter the number of grids");
-    while (gridsize > 100) {
-        gridsize = prompt("Please enter something less than 100");
+    let gridsize = parseInt(prompt("Enter the number of grids"));
+    while (gridsize > 100 || isNaN(gridsize)) {
+        gridsize = parseInt(prompt("Please enter a number less than 100"));
     }
     row = gridsize;
     column = gridsize;

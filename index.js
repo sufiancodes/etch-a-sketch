@@ -6,3 +6,14 @@ for (let i = 0; i < 16; i++) {
         main.appendChild(div);
     }
 }
+const divs = document.querySelectorAll(".container div");
+divs.forEach(div => {
+    //on mouse enter change color
+    div.addEventListener('mouseenter', () => {
+        div.style.backgroundColor = 'purple';
+    });
+    // on leave remove the color added
+    div.addEventListener('mouseleave', () => {
+        div.style.removeProperty('background-color');  // Remove the inline style to reset to the CSS color
+    });
+});

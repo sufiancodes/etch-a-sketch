@@ -20,10 +20,7 @@ divs.forEach(div => {
 const popup = document.querySelector(".btn");
 popup.addEventListener('click', () => {
     let gridsize = prompt("Enter the number of grids");
-    if (gridsize > 100) {
-        while (gridsize > 100) {
-            gridsize = prompt("Please enter something less then 100");
-            break;
-        }
+    while (gridsize > 100) {
+        gridsize = prompt("Please enter something less than 100");
     }
 });

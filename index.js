@@ -10,10 +10,20 @@ const divs = document.querySelectorAll(".container div");
 divs.forEach(div => {
     //on mouse enter change color
     div.addEventListener('mouseenter', () => {
-        div.style.backgroundColor = 'purple';
+        div.style.backgroundColor = 'red';
     });
     // on leave remove the color added
     div.addEventListener('mouseleave', () => {
         div.style.removeProperty('background-color');  // Remove the inline style to reset to the CSS color
     });
+});
+const popup = document.querySelector(".btn");
+popup.addEventListener('click', () => {
+    let gridsize = prompt("Enter the number of grids");
+    if (gridsize > 100) {
+        while (gridsize > 100) {
+            gridsize = prompt("Please enter something less then 100");
+            break;
+        }
+    }
 });

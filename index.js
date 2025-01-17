@@ -16,18 +16,25 @@ function createGrid(row, column) {
 }
 createGrid(row, column);
 
+let colorful = false;  // Declare it globally as a boolean
+
+const colofulbtn = document.querySelector(".btn2");
+colofulbtn.addEventListener('click', () => {
+    colorful = true;  // Set it to true when the button is clicked
+});
+
 function addHover() {
     const divs = document.querySelectorAll(".container div");
-divs.forEach(div => {
-    //on mouse enter change color
-    div.addEventListener('mouseenter', () => {
-        div.style.backgroundColor = 'red';
+    divs.forEach(div => {
+        // on mouse enter change color based on the value of 'colorful'
+        div.addEventListener('mouseenter', () => {
+            if (colorful) {
+                div.style.backgroundColor = 'pink';  // Use pink if 'colorful' is true
+            } else {
+                div.style.backgroundColor = 'black';  // Use black if 'colorful' is false
+            }
+        });
     });
-    // on leave remove the color added
-    // div.addEventListener('mouseleave', () => {
-    //     div.style.removeProperty('background-color');  // Remove the inline style to reset to the CSS color
-    // });
-});
 }
 
 const resetColor = document.querySelector(".btn1");
@@ -35,6 +42,7 @@ resetColor.addEventListener('click', () => {
     const divs = document.querySelectorAll("div");
     divs.forEach(div => {
         div.style.removeProperty('background-color');
+        colorful = 'false';
     });
 });
 

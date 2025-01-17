@@ -23,27 +23,37 @@ colofulbtn.addEventListener('click', () => {
     colorful = true;  // Set it to true when the button is clicked
 });
 
+function randomColor() {
+    let r = (Math.random() * 256).toFixed(2);
+    let g = (Math.random() * 256).toFixed(2);
+    let b = (Math.random() * 256).toFixed(2);
+    return `rgb(${r},${g},${b})`;
+}
+
+
 function addHover() {
     const divs = document.querySelectorAll(".container div");
     divs.forEach(div => {
         // on mouse enter change color based on the value of 'colorful'
         div.addEventListener('mouseenter', () => {
-            if (colorful) {
-                div.style.backgroundColor = 'pink';  // Use pink if 'colorful' is true
-            } else {
+            if (colorful === true) {
+                div.style.backgroundColor = randomColor() ;  // Use pink if 'colorful' is true
+            }
+            else {
                 div.style.backgroundColor = 'black';  // Use black if 'colorful' is false
             }
         });
     });
 }
 
+
 const resetColor = document.querySelector(".btn1");
 resetColor.addEventListener('click', () => {
     const divs = document.querySelectorAll("div");
     divs.forEach(div => {
         div.style.removeProperty('background-color');
-        colorful = 'false';
     });
+    colorful = false;
 });
 
 const popup = document.querySelector(".btn");
